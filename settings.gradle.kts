@@ -21,3 +21,11 @@ dependencyResolutionManagement {
 
 rootProject.name = "YEGithubUserCompose"
 include(":app")
+include(":data")
+include(":data:network")
+include(":data:database")
+include(":feature")
+include(":feature:search")
+include(":core")
+include(":core:model")
+include(":core:designsystem")
