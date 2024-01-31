@@ -1,0 +1,5 @@
+package datasource
+
+interface SearchRemoteDataSource {
+
+}
