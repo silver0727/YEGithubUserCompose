@@ -36,6 +36,19 @@ dependencies {
     implementation(libs.core.ktx)
     implementation(libs.appcompat)
     implementation(libs.material)
+
+    with(libs.compose) {
+        implementation(platform(bom))
+        implementation(ui)
+        implementation(ui.graphics)
+        implementation(ui.tooling.preview)
+        implementation(material3)
+        androidTestImplementation(platform(bom))
+        androidTestImplementation(ui.test.junit4)
+        debugImplementation(ui.tooling)
+        debugImplementation(ui.test.manifest)
+    }
+
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.test.ext.junit)
     androidTestImplementation(libs.espresso.core)

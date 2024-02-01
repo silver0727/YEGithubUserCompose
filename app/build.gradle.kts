@@ -54,22 +54,27 @@ android {
 
 dependencies {
 
+    implementation(project(":feature:search"))
+
     implementation(libs.hilt.android)
     kapt(libs.hilt.android.compiler)
 
     implementation(libs.core.ktx)
     implementation(libs.lifecycle.runtime.ktx)
     implementation(libs.activity.compose)
-    implementation(platform(libs.compose.bom))
-    implementation(libs.ui)
-    implementation(libs.ui.graphics)
-    implementation(libs.ui.tooling.preview)
-    implementation(libs.material3)
+
+    with(libs.compose) {
+        implementation(platform(bom))
+        implementation(ui)
+        implementation(ui.graphics)
+        implementation(ui.tooling.preview)
+        implementation(material3)
+        androidTestImplementation(platform(bom))
+        androidTestImplementation(ui.test.junit4)
+        debugImplementation(ui.tooling)
+        debugImplementation(ui.test.manifest)
+    }
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.test.ext.junit)
     androidTestImplementation(libs.espresso.core)
-    androidTestImplementation(platform(libs.compose.bom))
-    androidTestImplementation(libs.ui.test.junit4)
-    debugImplementation(libs.ui.tooling)
-    debugImplementation(libs.ui.test.manifest)
 }
